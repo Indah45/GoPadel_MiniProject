@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #26352f;
+    background: #f7f9f7;
+}
+
+/* Navbar */
+header {
+    background: #123c35;
+    padding: 18px 7%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-menu a:hover {
+    color: #a8e6cf;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-login,
+.btn-register {
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-login {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-register {
+    background: #a8e6cf;
+    color: #123c35;
+    font-weight: bold;
+}
+
+/* Hero */
+.hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
+    background: linear-gradient(120deg, #123c35, #397d68);
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.btn-book {
+    display: inline-block;
+    background: #a8e6cf;
+    color: #123c35;
+    padding: 14px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-book:hover {
+    background: white;
+}
+
+/* Courts */
+.courts {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.courts h2,
+.about h2 {
+    font-size: 30px;
+    color: #123c35;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.court-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.court-card {
+    background: white;
+    padding: 30px 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.court-card:hover {
+    transform: translateY(-7px);
+}
+
+.court-image {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.court-card h3 {
+    color: #123c35;
+    margin-bottom: 12px;
+}
+
+.court-card p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.court-card button {
+    background: #1b574b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.court-card button:hover {
+    background: #123c35;
+}
+
+/* About */
+.about {
+    background: #e8f3ed;
+    padding: 65px 10%;
+    text-align: center;
+}
+
+.about p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background: #123c35;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-menu {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .court-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* Modal Login dan Register */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    animation: muncul 0.3s ease;
+}
+
+.modal-content h2 {
+    color: #123c35;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-content > p {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+}
+
+.modal-content form button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+    background: #1b574b;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.modal-content form button:hover {
+    background: #123c35;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close:hover {
+    color: #123c35;
+}
+
+.switch-form {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #1b574b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

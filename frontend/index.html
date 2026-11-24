@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoPadel - Penyewaan Lapangan Padel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">GoPadel</h2>
+
+            <ul class="nav-menu">
+    <li><a href="#home">Beranda</a></li>
+    <li><a href="#lapangan">Lapangan</a></li>
+    <li><a href="#tentang">Tentang Kami</a></li>
+    <li id="menuRiwayat" style="display: none;">
+    <a href="#riwayat" onclick="tampilkanRiwayat()">Riwayat Pemesanan</a>
+</li>
+</ul>
+
+            <!-- Tombol sebelum login -->
+<div class="nav-buttons" id="guestButtons">
+    <button class="btn-login" onclick="bukaLogin()">Masuk</button>
+    <button class="btn-register" onclick="bukaRegister()">Daftar</button>
+</div>
+
+<!-- Tampilan setelah login -->
+<div class="nav-buttons" id="userButtons" style="display: none;">
+    <span id="welcomeUser"></span>
+    <button class="btn-logout" onclick="logout()">Keluar</button>
+</div>
+        </nav>
+    </header>
+
+<!-- Modal Login -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <span class="close" onclick="tutupModal()">&times;</span>
+
+        <h2>Masuk ke GoPadel</h2>
+        <p>Silakan masuk menggunakan akun Anda.</p>
+
+        <form id="loginForm">
+            <label>Email</label>
+            <input type="email" id="loginEmail" placeholder="Masukkan email" required>
+
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+
+            <button type="submit">Masuk</button>
+        </form>
+
+        <p class="switch-form">
+            Belum punya akun?
+            <a href="#" onclick="bukaRegister()">Daftar sekarang</a>
+        </p>
+    </div>
+</div>
+
+<!-- Modal Register -->
+<div class="modal" id="registerModal">
+    <div class="modal-content">
+        <span class="close" onclick="tutupModal()">&times;</span>
+
+        <h2>Daftar GoPadel</h2>
+        <p>Buat akun untuk mulai memesan lapangan.</p>
+
+        <form id="registerForm">
+            <label>Nama Lengkap</label>
+            <input type="text" id="registerNama" placeholder="Masukkan nama" required>
+
+            <label>Email</label>
+            <input type="email" id="registerEmail" placeholder="Masukkan email" required>
+
+            <label>Password</label>
+            <input type="password" id="registerPassword" placeholder="Minimal 8 karakter" minlength="8" required>
+
+            <button type="submit">Daftar</button>
+        </form>
+
+        <p class="switch-form">
+            Sudah punya akun?
+            <a href="#" onclick="bukaLogin()">Masuk sekarang</a>
+        </p>
+    </div>
+</div>
+
+    <!-- Halaman Utama -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Temukan Lapangan Padel Terbaik</h1>
+
+            <p>
+                Pesan lapangan padel dengan mudah, cepat, dan praktis.
+                Nikmati pengalaman bermain padel bersama teman dan keluarga.
+            </p>
+
+            <a href="#lapangan" class="btn-book">Pesan Lapangan</a>
+        </div>
+    </section>
+
+    <!-- Daftar Lapangan -->
+    <section class="courts" id="lapangan">
+        <h2>Pilihan Lapangan Padel</h2>
+
+        <p class="section-description">
+            Pilih lapangan favoritmu dan lakukan pemesanan sekarang.
+        </p>
+
+        <div class="court-container">
+
+            <div class="court-card">
+                <div class="court-image">🏟️</div>
+                <h3>Lapangan Reguler</h3>
+                <p>Lapangan padel standar untuk bermain bersama teman.</p>
+                <button onclick="pesanLapangan('Lapangan Reguler')">
+                    Pesan Sekarang
+                </button>
+            </div>
+
+            <div class="court-card">
+                <div class="court-image">🎾</div>
+                <h3>Lapangan Premium</h3>
+                <p>Lapangan dengan fasilitas yang lebih lengkap dan nyaman.</p>
+                <button onclick="pesanLapangan('Lapangan Premium')">
+                    Pesan Sekarang
+                </button>
+            </div>
+
+            <div class="court-card">
+                <div class="court-image">🏆</div>
+                <h3>Lapangan VIP</h3>
+                <p>Lapangan eksklusif untuk pengalaman bermain terbaik.</p>
+                <button onclick="pesanLapangan('Lapangan VIP')">
+                    Pesan Sekarang
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Riwayat Pemesanan -->
+<section class="courts" id="riwayat" style="display: none;">
+    <h2>Riwayat Pemesanan</h2>
+
+    <p class="section-description">
+        Berikut daftar pemesanan lapangan yang telah kamu lakukan.
+    </p>
+
+    <div id="daftarRiwayat">
+        <p>Memuat riwayat pemesanan...</p>
+    </div>
+</section>
+
+    <!-- Tentang Kami -->
+    <section class="about" id="tentang">
+        <h2>Tentang GoPadel</h2>
+
+        <p>
+            GoPadel merupakan sistem informasi penyewaan lapangan padel
+            yang membantu pelanggan melakukan pemesanan lapangan secara
+            online dengan lebih mudah dan efisien.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 GoPadel. Sistem Penyewaan Lapangan Padel.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
